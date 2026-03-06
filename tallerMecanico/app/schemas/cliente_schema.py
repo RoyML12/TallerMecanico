@@ -1,6 +1,22 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
-class ClienteCreate(BaseModel):
+
+class Cliente(BaseModel):
     nombre: str
-    telefono: str
-    email: EmailStr
+    telefono: int
+    email: str
+
+
+class Vehiculo(BaseModel):
+    placa: str
+    modelo: str
+
+
+class Orden(BaseModel):
+    descripcion: str
+
+
+class ClienteVehiculoOrden(BaseModel):
+    cliente: Cliente
+    vehiculo: Vehiculo
+    orden: Orden
